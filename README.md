@@ -346,3 +346,10 @@ For specific questions, check:
 Your production-ready landing page is complete and waiting to be deployed.
 
 Choose a guide above and get started!
+
+---
+
+## 📬 Let's Connect
+
+💼 LinkedIn: [https://www.linkedin.com/in/salmantheiosdev/](https://www.linkedin.com/in/salmantheiosdev/)  
+📧 Email: app.salmanqureshi@gmail.com
