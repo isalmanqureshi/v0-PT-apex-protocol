@@ -1,11 +1,9 @@
-import Image from 'next/image';
-
 const founders = [
-  { id: 1, name: 'Founder 1' },
-  { id: 2, name: 'Founder 2' },
-  { id: 3, name: 'Founder 3' },
-  { id: 4, name: 'Founder 4' },
-  { id: 5, name: 'Founder 5' },
+  { id: 1, name: 'TechFlow Labs' },
+  { id: 2, name: 'Aurora Ventures' },
+  { id: 3, name: 'Nexus Capital' },
+  { id: 4, name: 'Velocity Inc' },
+  { id: 5, name: 'Zenith Partners' },
 ];
 
 export function SocialProof() {
@@ -17,13 +15,11 @@ export function SocialProof() {
         </p>
         <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
           {founders.map((founder) => (
-            <div key={founder.id} className="relative h-12 w-32 opacity-70 hover:opacity-100 transition duration-300">
-              <Image
-                src={`/placeholder.svg?height=48&width=128`}
-                alt={founder.name}
-                fill
-                className="object-contain"
-              />
+            <div key={founder.id} className="flex items-center gap-2 px-4 py-2 rounded-md bg-card/40 backdrop-blur-sm border border-border/50 hover:border-accent/50 transition opacity-70 hover:opacity-100">
+              <div className="relative h-6 w-6 rounded bg-gradient-to-br from-accent to-accent/50 flex items-center justify-center text-xs font-bold text-accent-foreground">
+                {founder.name[0]}
+              </div>
+              <span className="text-sm font-medium text-foreground">{founder.name}</span>
             </div>
           ))}
         </div>

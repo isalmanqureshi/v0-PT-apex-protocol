@@ -237,7 +237,7 @@ export default function ContactPage() {
 
             <div className="border-t border-border/30 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
               <p className="text-muted-foreground text-sm">
-                © 2024 Apex Protocol. All rights reserved.
+                © 2026 Apex Protocol. All rights reserved.
               </p>
               <button
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
