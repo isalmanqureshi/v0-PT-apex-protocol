@@ -1,0 +1,110 @@
+'use client';
+
+import { useState } from 'react';
+import { Check } from 'lucide-react';
+import { CTAModal } from './cta-modal';
+
+const pricingTiers = [
+  {
+    name: 'Foundation',
+    price: '$297',
+    period: '/month',
+    description: 'Essential tools for performance optimization',
+    features: [
+      'Time efficiency system',
+      'Basic tracking dashboard',
+      'Weekly email insights',
+      'Community access',
+    ],
+    highlighted: false,
+  },
+  {
+    name: 'Catalyst',
+    price: '$897',
+    period: '/month',
+    description: 'Complete Catalyst Method implementation',
+    features: [
+      'All Foundation features',
+      'Advanced metabolic tracking',
+      'Bi-weekly coaching sessions',
+      'Custom optimization plan',
+      'Priority support',
+    ],
+    highlighted: true,
+  },
+  {
+    name: 'Elite',
+    price: '$2,497',
+    period: '/month',
+    description: 'White-glove transformation program',
+    features: [
+      'All Catalyst features',
+      'Weekly 1:1 strategy sessions',
+      'Executive roadmap design',
+      'Dedicated success coach',
+      'VIP network access',
+      '24/7 concierge support',
+    ],
+    highlighted: false,
+  },
+];
+
+export function Pricing() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  return (
+    <>
+      <section id="pricing" className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-background">
+        <div className="w-full max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Simple, Transparent Pricing</h2>
+            <p className="text-xl text-muted-foreground">
+              Choose the tier that matches your ambition.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {pricingTiers.map((tier) => (
+              <div
+                key={tier.name}
+                className={`rounded-lg border p-8 transition ${
+                  tier.highlighted
+                    ? 'bg-accent/5 border-accent ring-2 ring-accent/30'
+                    : 'bg-card border-border hover:border-accent/50'
+                }`}
+              >
+                <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
+                <p className="text-muted-foreground mb-4">{tier.description}</p>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold">{tier.price}</span>
+                  <span className="text-muted-foreground">{tier.period}</span>
+                </div>
+
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className={`w-full mb-8 py-3 rounded-md font-semibold transition ${
+                    tier.highlighted
+                      ? 'bg-accent text-accent-foreground hover:bg-accent/90'
+                      : 'border border-border text-foreground hover:bg-card/50'
+                  }`}
+                >
+                  Get Started
+                </button>
+
+                <ul className="space-y-3">
+                  {tier.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-3">
+                      <Check size={18} className="text-accent flex-shrink-0" />
+                      <span className="text-muted-foreground">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <CTAModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </>
+  );
+}

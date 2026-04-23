@@ -7,9 +7,21 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'Apex Protocol | Catalyst Method for Elite Performance',
+  description: 'Master time efficiency, metabolic precision, and data-driven results with Marcus Thorne\'s Catalyst Method. Elite performance protocol.',
   generator: 'v0.app',
+  keywords: 'catalyst method, performance protocol, elite training, metabolic optimization',
+  authors: [{ name: 'Apex Protocol' }],
+  openGraph: {
+    title: 'Apex Protocol | Catalyst Method for Elite Performance',
+    description: 'Master the Catalyst Method for elite performance',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Apex Protocol | Catalyst Method for Elite Performance',
+    description: 'Master the Catalyst Method for elite performance',
+  },
   icons: {
     icon: [
       {
@@ -35,8 +47,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className="font-sans antialiased">
+    <html lang="en" className="dark bg-background">
+      <body className="font-sans antialiased bg-background text-foreground">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
