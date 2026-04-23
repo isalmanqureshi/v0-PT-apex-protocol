@@ -8,3 +8,11 @@ export const metadata: Metadata = {
     description: 'Connect with Marcus Thorne about the Catalyst Method',
   },
 };
+
+export default function ContactLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return children;
+}

@@ -10,14 +10,14 @@ const founders = [
 
 export function SocialProof() {
   return (
-    <section className="w-full py-12 px-4 sm:px-6 lg:px-8 bg-card border-y border-border">
+    <section className="w-full py-12 px-4 sm:px-6 lg:px-8 bg-card/30 backdrop-blur-md border-y border-border/30">
       <div className="w-full max-w-7xl mx-auto">
-        <p className="text-center text-muted-foreground mb-8 font-semibold">
+        <p className="text-center text-muted-foreground mb-8 font-semibold uppercase tracking-wide text-sm">
           Trusted by elite performers and founders
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-8">
+        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
           {founders.map((founder) => (
-            <div key={founder.id} className="relative h-12 w-32">
+            <div key={founder.id} className="relative h-12 w-32 opacity-70 hover:opacity-100 transition duration-300">
               <Image
                 src={`/placeholder.svg?height=48&width=128`}
                 alt={founder.name}

@@ -9,7 +9,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="w-full border-t border-border bg-card">
+    <footer className="w-full border-t border-border/30 bg-card/40 backdrop-blur-md">
       <div className="w-full px-4 sm:px-6 lg:px-8 py-12">
         <div className="w-full max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
@@ -82,7 +82,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="border-t border-border pt-8 flex items-center justify-between">
+          <div className="border-t border-border/30 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-muted-foreground text-sm">
               © 2024 Apex Protocol. All rights reserved.
             </p>

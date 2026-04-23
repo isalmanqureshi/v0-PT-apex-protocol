@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { Clock, Zap, BarChart3 } from 'lucide-react';
-import { CTAModal } from './cta-modal';
+import { JoinModal } from './join-modal';
+import { BenefitsModal } from './benefits-modal';
 
 const catalystPillars = [
   {
@@ -23,7 +24,8 @@ const catalystPillars = [
 ];
 
 export function CatalystMethod() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isJoinOpen, setIsJoinOpen] = useState(false);
+  const [isBenefitsOpen, setIsBenefitsOpen] = useState(false);
 
   return (
     <>
@@ -42,7 +44,7 @@ export function CatalystMethod() {
               return (
                 <div
                   key={pillar.title}
-                  className="bg-card border border-border rounded-lg p-8 hover:border-accent/50 transition"
+                  className="bg-card/40 backdrop-blur-md border border-border/50 rounded-lg p-8 hover:border-accent/50 hover:bg-card/60 transition"
                 >
                   <Icon className="text-accent mb-4" size={32} />
                   <h3 className="text-xl font-bold mb-3">{pillar.title}</h3>
@@ -52,17 +54,32 @@ export function CatalystMethod() {
             })}
           </div>
 
-          <div className="text-center">
+          <div className="text-center flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={() => setIsModalOpen(true)}
+              onClick={() => setIsJoinOpen(true)}
               className="bg-accent text-accent-foreground hover:bg-accent/90 px-8 py-4 rounded-md font-semibold text-lg transition"
             >
               Unlock Your Potential
             </button>
+            <button
+              onClick={() => setIsBenefitsOpen(true)}
+              className="border border-border text-foreground hover:bg-card/30 px-8 py-4 rounded-md font-semibold text-lg transition"
+            >
+              Learn More
+            </button>
           </div>
         </div>
       </section>
-      <CTAModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <JoinModal isOpen={isJoinOpen} onClose={() => setIsJoinOpen(false)} />
+      <BenefitsModal 
+        isOpen={isBenefitsOpen} 
+        onClose={() => setIsBenefitsOpen(false)}
+        onJoin={() => {
+          setIsBenefitsOpen(false);
+          setIsJoinOpen(true);
+        }}
+      />
     </>
   );
 }
+

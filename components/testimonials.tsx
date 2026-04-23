@@ -38,7 +38,7 @@ export function Testimonials() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="bg-background border border-border rounded-lg p-8">
+            <div key={testimonial.id} className="bg-background/40 backdrop-blur-md border border-border/50 rounded-lg p-8 hover:bg-background/60 transition">
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: testimonial.rating }).map((_, i) => (
                   <Star key={i} size={16} className="text-accent fill-accent" />
@@ -46,7 +46,7 @@ export function Testimonials() {
               </div>
               <p className="text-foreground mb-6 italic">"{testimonial.content}"</p>
               <div className="flex items-center gap-3">
-                <div className="relative h-10 w-10 rounded-full overflow-hidden bg-card">
+                <div className="relative h-10 w-10 rounded-full overflow-hidden bg-card/40 backdrop-blur-md border border-border/50">
                   <Image
                     src="/placeholder.svg?height=40&width=40"
                     alt={testimonial.name}

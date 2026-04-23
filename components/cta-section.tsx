@@ -26,7 +26,7 @@ export function CTASection() {
             </button>
             <a
               href="#pricing"
-              className="border border-border text-foreground hover:bg-card/50 px-8 py-4 rounded-md font-semibold text-lg transition"
+              className="border border-border/50 text-foreground hover:bg-card/30 backdrop-blur-sm px-8 py-4 rounded-md font-semibold text-lg transition"
             >
               View Pricing
             </a>

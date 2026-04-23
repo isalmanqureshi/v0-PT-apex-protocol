@@ -67,10 +67,10 @@ export function Pricing() {
             {pricingTiers.map((tier) => (
               <div
                 key={tier.name}
-                className={`rounded-lg border p-8 transition ${
+                className={`rounded-lg backdrop-blur-md border p-8 transition ${
                   tier.highlighted
-                    ? 'bg-accent/5 border-accent ring-2 ring-accent/30'
-                    : 'bg-card border-border hover:border-accent/50'
+                    ? 'bg-accent/10 border-accent/50 ring-2 ring-accent/30 hover:bg-accent/15'
+                    : 'bg-card/40 border-border/50 hover:border-accent/50 hover:bg-card/60'
                 }`}
               >
                 <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>

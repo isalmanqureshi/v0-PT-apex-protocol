@@ -35,7 +35,7 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen w-full bg-background">
-      <header className="w-full border-b border-border bg-background/95 backdrop-blur-md">
+      <header className="w-full border-b border-border/30 bg-background/95 backdrop-blur-md">
         <div className="w-full px-4 sm:px-6 lg:px-8 py-4">
           <Link href="/" className="flex items-center gap-2 text-accent hover:text-accent/80 transition">
             <ArrowLeft size={20} />
@@ -53,10 +53,10 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="bg-card border border-border rounded-lg p-8 md:p-12">
+          <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-lg p-8 md:p-12">
             {formState.submitted ? (
               <div className="text-center py-8">
-                <div className="inline-block bg-accent/10 border border-accent rounded-full p-3 mb-4">
+                <div className="inline-block bg-accent/10 border border-accent/50 rounded-full p-3 mb-4">
                   <svg
                     className="text-accent"
                     width="24"
@@ -87,7 +87,7 @@ export default function ContactPage() {
                     value={formState.name}
                     onChange={handleChange}
                     required
-                    className="w-full bg-background border border-border rounded-md px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"
+                    className="w-full bg-background/50 backdrop-blur-sm border border-border/50 rounded-md px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"
                     placeholder="Your name"
                   />
                 </div>
@@ -103,7 +103,7 @@ export default function ContactPage() {
                     value={formState.email}
                     onChange={handleChange}
                     required
-                    className="w-full bg-background border border-border rounded-md px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"
+                    className="w-full bg-background/50 backdrop-blur-sm border border-border/50 rounded-md px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -118,7 +118,7 @@ export default function ContactPage() {
                     name="company"
                     value={formState.company}
                     onChange={handleChange}
-                    className="w-full bg-background border border-border rounded-md px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"
+                    className="w-full bg-background/50 backdrop-blur-sm border border-border/50 rounded-md px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"
                     placeholder="Your company"
                   />
                 </div>
@@ -134,7 +134,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full bg-background border border-border rounded-md px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition resize-none"
+                    className="w-full bg-background/50 backdrop-blur-sm border border-border/50 rounded-md px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition resize-none"
                     placeholder="Tell Marcus about your goals and how we can help..."
                   />
                 </div>
@@ -150,11 +150,11 @@ export default function ContactPage() {
           </div>
 
           <div className="mt-12 grid md:grid-cols-2 gap-8">
-            <div className="bg-card border border-border rounded-lg p-6">
+            <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-lg p-6 hover:bg-card/60 transition">
               <h3 className="font-bold mb-2">Direct Email</h3>
               <p className="text-muted-foreground">marcus@apexprotocol.com</p>
             </div>
-            <div className="bg-card border border-border rounded-lg p-6">
+            <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-lg p-6 hover:bg-card/60 transition">
               <h3 className="font-bold mb-2">Response Time</h3>
               <p className="text-muted-foreground">Usually within 24 hours</p>
             </div>
@@ -162,7 +162,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <footer className="w-full border-t border-border bg-card mt-20">
+      <footer className="w-full border-t border-border/30 bg-card/40 backdrop-blur-md mt-20">
         <div className="w-full px-4 sm:px-6 lg:px-8 py-12">
           <div className="w-full max-w-7xl mx-auto">
             <div className="grid md:grid-cols-4 gap-8 mb-8">
@@ -235,7 +235,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="border-t border-border pt-8 flex items-center justify-between">
+            <div className="border-t border-border/30 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
               <p className="text-muted-foreground text-sm">
                 © 2024 Apex Protocol. All rights reserved.
               </p>

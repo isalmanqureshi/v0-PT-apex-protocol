@@ -65,7 +65,7 @@ export function FAQ() {
           </p>
         </div>
 
-        <div className="bg-card border border-border rounded-lg p-8">
+        <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-lg p-8 hover:bg-card/60 transition">
           {faqs.map((faq) => (
             <FAQItem key={faq.id} item={faq} />
           ))}
