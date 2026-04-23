@@ -1,6 +1,6 @@
-# 📖 APEX PROTOCOL
+# 📖 Apex Protocol | High-Performance Fitness MVP
 
-Welcome to the Apex Protocol landing page project. This index will help you navigate all documentation and understand the structure.
+A premium, conversion-optimized landing page designed for the modern executive. This project serves as a high-fidelity prototype for **Apex Protocol**, a fitness coaching brand led by Marcus "The Catalyst" Thorne. This index will help you navigate all documentation and understand the structure.
 
 ---
 
