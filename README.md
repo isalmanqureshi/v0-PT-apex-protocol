@@ -1,4 +1,4 @@
-# 📖 APEX PROTOCOL - PROJECT INDEX
+# 📖 APEX PROTOCOL
 
 Welcome to the Apex Protocol landing page project. This index will help you navigate all documentation and understand the structure.
 
