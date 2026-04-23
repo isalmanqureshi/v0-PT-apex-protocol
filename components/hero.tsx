@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import { ArrowDown } from 'lucide-react';
 import { JoinModal } from './join-modal';
 import { BenefitsModal } from './benefits-modal';
@@ -43,14 +42,16 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="relative h-96 md:h-full min-h-96 rounded-lg overflow-hidden bg-card/40 backdrop-blur-md border border-border/50 shadow-2xl">
-            <Image
-              src="/placeholder.svg?height=600&width=600"
-              alt="Apex Protocol showcase"
-              fill
-              className="object-cover"
-              priority
-            />
+          <div className="relative h-96 md:h-full min-h-96 rounded-lg overflow-hidden bg-gradient-to-br from-accent/20 via-card/40 to-background/50 backdrop-blur-md border border-border/50 shadow-2xl flex items-center justify-center">
+            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+            <div className="relative z-10 text-center px-8">
+              <div className="inline-block bg-accent/10 backdrop-blur-md border border-accent/30 rounded-full p-4 mb-4">
+                <svg className="w-16 h-16 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <p className="text-muted-foreground font-semibold">Elite Performance Protocol</p>
+            </div>
           </div>
         </div>
       </section>

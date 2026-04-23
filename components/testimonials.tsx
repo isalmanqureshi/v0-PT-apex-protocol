@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Star } from 'lucide-react';
 
 const testimonials = [
@@ -46,13 +45,10 @@ export function Testimonials() {
               </div>
               <p className="text-foreground mb-6 italic">"{testimonial.content}"</p>
               <div className="flex items-center gap-3">
-                <div className="relative h-10 w-10 rounded-full overflow-hidden bg-card/40 backdrop-blur-md border border-border/50">
-                  <Image
-                    src="/placeholder.svg?height=40&width=40"
-                    alt={testimonial.name}
-                    fill
-                    className="object-cover"
-                  />
+                <div className="relative h-10 w-10 rounded-full overflow-hidden bg-gradient-to-br from-accent to-accent/50 border border-accent/30 flex items-center justify-center flex-shrink-0">
+                  <span className="text-accent-foreground font-bold text-xs">
+                    {testimonial.name.split(' ').map(n => n[0]).join('')}
+                  </span>
                 </div>
                 <div>
                   <p className="font-semibold text-foreground">{testimonial.name}</p>
