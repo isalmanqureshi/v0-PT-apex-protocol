@@ -383,13 +383,6 @@ For specific questions, check:
 
 ---
 
-**Welcome to Apex Protocol! 🚀**
-
-Your production-ready landing page is complete and waiting to be deployed.
-
-Choose a guide above and get started!
-
----
 
 ## 📬 Let's Connect
 
