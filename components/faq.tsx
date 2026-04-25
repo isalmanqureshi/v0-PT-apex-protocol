@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const faqs = [
   {
@@ -39,17 +40,32 @@ function FAQItem({ item }: FAQItemProps) {
 
   return (
     <div className="border-b border-border py-6">
-      <button
+      <motion.button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between text-lg font-semibold text-foreground hover:text-accent transition"
+        whileHover={{ x: 4 }}
       >
         {item.question}
-        <ChevronDown
-          size={20}
-          className={`transition-transform ${isOpen ? 'rotate-180' : ''}`}
-        />
-      </button>
-      {isOpen && <p className="mt-4 text-muted-foreground text-balance">{item.answer}</p>}
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
+        >
+          <ChevronDown size={20} />
+        </motion.div>
+      </motion.button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="overflow-hidden"
+          >
+            <p className="mt-4 text-muted-foreground text-balance">{item.answer}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -65,11 +81,17 @@ export function FAQ() {
           </p>
         </div>
 
-        <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-lg p-8 hover:bg-card/60 transition">
+        <motion.div
+          className="bg-card/40 backdrop-blur-md border border-border/50 rounded-lg p-8 hover:bg-card/60 transition"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {faqs.map((faq) => (
             <FAQItem key={faq.id} item={faq} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

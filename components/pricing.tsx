@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Check } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { CTAModal } from './cta-modal';
 
 const pricingTiers = [
@@ -52,6 +53,26 @@ const pricingTiers = [
 export function Pricing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' },
+    },
+  };
+
   return (
     <>
       <section id="pricing" className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-background">
@@ -63,45 +84,61 @@ export function Pricing() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {pricingTiers.map((tier) => (
-              <div
+          <motion.div
+            className="grid md:grid-cols-3 gap-8 mb-12"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            {pricingTiers.map((tier, index) => (
+              <motion.div
                 key={tier.name}
-                className={`rounded-lg backdrop-blur-md border p-8 transition ${
-                  tier.highlighted
-                    ? 'bg-accent/10 border-accent/50 ring-2 ring-accent/30 hover:bg-accent/15'
-                    : 'bg-card/40 border-border/50 hover:border-accent/50 hover:bg-card/60'
-                }`}
+                variants={cardVariants}
+                className="relative"
               >
-                <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
-                <p className="text-muted-foreground mb-4">{tier.description}</p>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold">{tier.price}</span>
-                  <span className="text-muted-foreground">{tier.period}</span>
-                </div>
-
-                <button
-                  onClick={() => setIsModalOpen(true)}
-                  className={`w-full mb-8 py-3 rounded-md font-semibold transition ${
+                {tier.highlighted && (
+                  <div className="absolute inset-0 -z-10 rounded-lg blur-2xl opacity-30 bg-gradient-radial from-accent via-accent/50 to-transparent pointer-events-none" />
+                )}
+                <div
+                  className={`rounded-lg backdrop-blur-md border p-8 transition ${
                     tier.highlighted
-                      ? 'bg-accent text-accent-foreground hover:bg-accent/90'
-                      : 'border border-border text-foreground hover:bg-card/50'
+                      ? 'bg-accent/10 border-accent/50 ring-2 ring-accent/30 hover:bg-accent/15'
+                      : 'bg-card/40 border-border/50 hover:border-accent/50 hover:bg-card/60'
                   }`}
                 >
-                  Get Started
-                </button>
+                  <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
+                  <p className="text-muted-foreground mb-4">{tier.description}</p>
+                  <div className="mb-6">
+                    <span className="text-4xl font-bold">{tier.price}</span>
+                    <span className="text-muted-foreground">{tier.period}</span>
+                  </div>
 
-                <ul className="space-y-3">
-                  {tier.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-3">
-                      <Check size={18} className="text-accent flex-shrink-0" />
-                      <span className="text-muted-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                  <motion.button
+                    onClick={() => setIsModalOpen(true)}
+                    className={`w-full mb-8 py-3 rounded-md font-semibold transition ${
+                      tier.highlighted
+                        ? 'bg-accent text-accent-foreground hover:bg-accent/90'
+                        : 'border border-border text-foreground hover:bg-card/50'
+                    }`}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Get Started
+                  </motion.button>
+
+                  <ul className="space-y-3">
+                    {tier.features.map((feature) => (
+                      <li key={feature} className="flex items-center gap-3">
+                        <Check size={18} className="text-accent flex-shrink-0" />
+                        <span className="text-muted-foreground">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
       <CTAModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
